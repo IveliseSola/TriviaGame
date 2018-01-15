@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-var triviaQuestions = [{
+var questions = [{
 	question: "Who was the only President to serve more than two terms?",
     answerList: ["Franklin D. Roosevelt", "Ulysses S. Grant", "Theodore Roosevelt", "George Washington"],
     info: "Franklin D. Roosevelt served as President for over 12 years, the longest time in office. He is the only president to serve more than two terms; he died shortly into his fourth term in 1945.",
     answer: 0,
-    image:"assets/images/"
+    image:"assets/images/fdr.jpg"
 },{
 	question: "Who was the only President to serve two non-consecutive terms?",
     answerList: ["Woodrow Wilson", "Ronald Reagan", "Theodore Roosevelt", "Grover Cleveland"],
@@ -52,5 +52,57 @@ var triviaQuestions = [{
     info:"Johnson was impeached on February 24, 1868 in the U.S. House of Representatives on eleven articles of impeachment detailing his 'high crimes and misdemeanors', in accordance with Article Two of the United States Constitution.",
 	answer: 1
 }];
+
+var selection;
+var time;
+var correctAnswer = 0;
+var incorrectAnswer = 0;
+var unanswered = 0;
+var currentQuestion = 0;
+var messages = {
+	correct: "Yes, that's right!",
+	incorrect: "No, that's not it.",
+	endTime: "Out of time!",
+	finished: "Alright! Let's see how well you did."
+}
+
+
+$("#start").on("click", function () {
+    $(".welcome-page").hide();
+    trivia();
+});
+
+function trivia(){
+    $('#message').empty();
+	$('#correctAnswers').empty();
+	$('#incorrectAnswers').empty();
+	$('#unanswered').empty();
+	currentQuestion = 0;
+	correctAnswer = 0;
+	incorrectAnswer = 0;
+    unanswered = 0;
+	triviaQuestion();
+}
+
+function triviaQuestion(){
+    $('.message').empty();
+	$('.info').empty();
+	$(".currentQuestion").html(" <h2> Question # " + (currentQuestion+1) + " / " + questions.length + "</h2>");
+
+	for(var i = 0; i < 4; i++){
+		var options = $("<div>");
+		options.text(questions[currentQuestion].answerList[i]);
+		options.attr({"data-index": i });
+		options.addClass("choice");
+		$(".options-List").append(options);
+	}
+	countdown();
+	//clicking an answer will pause the time and setup answerPage
+	$(".choice").on('click',function(){
+		selection = $(this).data('index');
+		clearInterval(time);
+		answerPage();
+    })
+}
 
 });
