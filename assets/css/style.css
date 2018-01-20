@@ -1,0 +1,65 @@
+
+/* General */
+
+*{
+    font-family: 'Supermercado One', cursive;
+    font-size:20px;
+}
+
+body{
+    background-image: url(../images/wood-bg.jpg);
+    background-size: cover; 
+}
+
+h2{ font-size: 30px;}
+h3{ font-size:25px}
+
+/* Welcome Section*/
+
+.welcome-section{
+    width: 40%;
+    margin: 12% 30%;
+    text-align: center;
+}
+
+.welcome-section h1{
+    width: 100%;
+    font-size: 70px;
+    font-weight: 200;
+    color:#BF0A30;
+    text-shadow: 1px 1px #fff;
+}
+
+#start {
+    background-color: #002868;
+    color:#fff;
+    height: 40px;
+    width:80px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin-top: 20px;
+} 
+
+/* Trivia Section */
+
+.trivia{
+    width: 60%;
+    margin: 10% 20%;
+    text-align: center;
+    background-color: hsla(0, 94%, 27%, 0.3);
+}
+
+.time-left{ padding-top:15px;}
+.options-list, 
+.message{ padding-bottom: 15px;}
+
+.answer-section{
+    width: 60%;
+    margin: 10% 20%;
+    text-align: center;
+    background-color: hsla(234, 81%, 39%, 0.3);
+}
+
+
+
