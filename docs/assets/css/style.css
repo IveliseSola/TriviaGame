@@ -1,0 +1,86 @@
+
+/* General */
+
+*{
+    font-family: 'Supermercado One', cursive;
+    font-size:20px;
+}
+
+body{
+    background-image: url(../images/wood-bg.jpg);
+    background-size: cover; 
+}
+
+h2{ font-size: 30px;}
+h3{ font-size:25px}
+
+.trivia-section,
+.answer-section,
+.scoreboard {
+    width: 60%;
+    margin: 10% 20%;
+    text-align: center;
+}
+
+/* Welcome Section*/
+
+.welcome-section{
+    width: 40%;
+    margin: 12% 30%;
+    text-align: center;
+}
+
+.welcome-section h1{
+    width: 100%;
+    font-size: 70px;
+    font-weight: 200;
+    color:#BF0A30;
+    text-shadow: 1px 1px #fff;
+}
+
+#start,
+.start-over {
+    background-color: #002868;
+    color:#fff;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin-top: 20px;
+} 
+
+#start-over{
+    height: 40px;
+    width:80px;
+}
+
+/* Trivia Section */
+
+.trivia-section{ background-color: hsla(0, 94%, 27%, 0.5);}
+
+.time-left,
+.message,
+.image,
+.final-message{ padding-top:15px;}
+
+.options-list,
+.image{ padding-bottom: 15px;}
+
+/* Answer Section*/
+
+.answer-section{ background-color: hsla(234, 81%, 39%, 0.5);}
+
+.info{ padding: 0 5px;}
+
+/* Scoreboard */
+
+.scoreboard{background-color: hsla(232, 17%, 91%, 0.3);}
+
+.start-over{
+    height: 30px;
+    width: 20%;
+    margin-right: 40%;
+    margin-left: 40%;
+}
+
+
+
