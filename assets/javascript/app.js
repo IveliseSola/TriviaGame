@@ -76,8 +76,11 @@ $(document).ready(function () {
         finished: "Alright! Let's see how well you did."
     }
 
-    $(".trivia").hide();
+    $(".trivia-section").hide();
     $(".answer-section").hide();
+    $(".scoreboard").hide();
+    $(".start-over").hide();
+
 
     $("#start").on("click", function () {
         $(".welcome-section").hide();
@@ -86,7 +89,7 @@ $(document).ready(function () {
     });
 
     function trivia() {
-        $(".trivia").show();
+        $(".trivia-section").show();
         $(".final-message").empty();
         $(".correct-answers").empty();
         $(".incorrect-answers").empty();
@@ -100,7 +103,8 @@ $(document).ready(function () {
 
     function showTriviaQuestion() {
         $(".answer-section").hide();
-        $(".trivia").show();
+        $(".scoreboard").hide();
+        $(".trivia-section").show();
         $(".message").empty();
         $(".info").empty();
         $(".image").empty();
@@ -142,7 +146,7 @@ $(document).ready(function () {
     }
 
     function answerSection() {
-        $(".trivia").hide();
+        $(".trivia-section").hide();
         $(".answer-section").show();
         $(".current-question").empty();
         $(".choice").empty();
@@ -154,18 +158,18 @@ $(document).ready(function () {
 
         if ((playerChoice == rightAnswerIndex) && (answered == true)) {
             correctAnswer++;
-            $(".message").html(messages.correct);
-            $(".info").html(" <br> <br> " + fact);
+            $(".message").html("<h3> " + messages.correct + "</h3>");
+            $(".info").html(" <br> " + fact);
             $(".image").append('<img src="' + questions[currentQuestion].image + '" style="height:200px;"/>');
         } else if ((playerChoice != rightAnswerIndex) && (answered == true)) {
             incorrectAnswer++;
-            $(".message").html(messages.incorrect);
-            $(".info").html("The correct answer was: " + rightAnswerText + "<br> <br>" + fact);
+            $(".message").html("<h3>" + messages.incorrect + "</h3>");
+            $(".info").html(" <h4> The correct answer was: " + rightAnswerText + " </h4> <br>" + fact);
             $(".image").append('<img src="' + questions[currentQuestion].image + '" style="height:200px;"/>');
         } else {
             unanswered++;
-            $(".message").html(messages.endTime);
-            $(".info").html("The correct answer was: " + rightAnswerText + "<br> <br>" + fact);
+            $(".message").html("<h3>" + messages.endTime + "</h3>");
+            $(".info").html(" <h4> The correct answer was: " + rightAnswerText + " </h4> <br>" + fact);
             $(".image").append('<img src="' + questions[currentQuestion].image + '" style="height:200px;"/>');
             answered = true;
         }
@@ -179,12 +183,14 @@ $(document).ready(function () {
     }
 
     function scoreboard() {
+        $(".scoreboard").show();
+        $(".answer-section").hide();
         $(".time-left").empty();
         $(".message").empty();
         $(".info").empty();
         $(".image").empty();
 
-        $(".final-message").html(messages.finished);
+        $(".final-message").html("<h3> "+ messages.finished + "</h3>");
         $(".correct-answers").html("Correct Answers: " + correctAnswer);
         $(".incorrect-answers").html("Incorrect Answers: " + incorrectAnswer);
         $(".unanswered").html("Unanswered: " + unanswered);
